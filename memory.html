@@ -1,0 +1,625 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+.error
+{
+ border:1px solid red;
+}
+.correct
+{
+ border:1px solid #00FF00;
+}
+.even{
+    background: #66FFFF;
+    }
+.odd{
+	color:red;
+}
+</style>
+<script src="http://code.jquery.com/jquery-latest.min.js"
+        type="text/javascript"></script>
+<script type="text/javascript">
+Array.prototype.randomElement = function () {
+    return this[Math.floor(Math.random() * this.length)]
+}
+function isNumeric(input)
+{
+    return (input - 0) == input && input.length > 0;
+}
+var words= new Array();
+words[0]="Adult";
+words[1]="Aeroplane";
+words[2]="Air";
+words[3]="AircraftCarrier";
+words[4]="Airforce";
+words[5]="Airport";
+words[6]="Album";
+words[7]="Alphabet";
+words[8]="Apple";
+words[9]="Arm";
+words[10]="Army";
+words[11]="Baby";
+words[12]="Baby";
+words[13]="Backpack";
+words[14]="Balloon";
+words[15]="Banana";
+words[16]="Bank";
+words[17]="Barbecue";
+words[18]="Bathroom";
+words[19]="Bathtub";
+words[20]="Bed";
+words[21]="Bed";
+words[22]="Bee";
+words[23]="Bible";
+words[24]="Bible";
+words[25]="Bird";
+words[26]="Bomb";
+words[27]="Book";
+words[28]="Boss";
+words[29]="Bottle";
+words[30]="Bowl";
+words[31]="Box";
+words[32]="Boy";
+words[33]="Brain";
+words[34]="Bridge";
+words[35]="Butterfly";
+words[36]="Button";
+words[37]="Cappuccino";
+words[38]="Car";
+words[39]="Car-race";
+words[40]="Carpet";
+words[41]="Carrot";
+words[42]="Cave";
+words[43]="Chair";
+words[44]="ChessBoard";
+words[45]="Chief";
+words[46]="Child";
+words[47]="Chisel";
+words[48]="Chocolates";
+words[49]="Church";
+words[50]="Church";
+words[51]="Circle";
+words[52]="Circus";
+words[53]="Circus";
+words[54]="Clock";
+words[55]="Clown";
+words[56]="Coffee";
+words[57]="Coffee-shop";
+words[58]="Comet";
+words[59]="CompactDisc";
+words[60]="Compass";
+words[61]="Computer";
+words[62]="Crystal";
+words[63]="Cup";
+words[64]="Cycle";
+words[65]="DataBase";
+words[66]="Desk";
+words[67]="Diamond";
+words[68]="Dress";
+words[69]="Drill";
+words[70]="Drink";
+words[71]="Drum";
+words[72]="Dung";
+words[73]="Ears";
+words[74]="Earth";
+words[75]="Egg";
+words[76]="Electricity";
+words[77]="Elephant";
+words[78]="Eraser";
+words[79]="Explosive";
+words[80]="Eyes";
+words[81]="Family";
+words[82]="Fan";
+words[83]="Feather";
+words[84]="Festival";
+words[85]="Film";
+words[86]="Finger";
+words[87]="Fire";
+words[88]="Floodlight";
+words[89]="Flower";
+words[90]="Foot";
+words[91]="Fork";
+words[92]="Freeway";
+words[93]="Fruit";
+words[94]="Fungus";
+words[95]="Game";
+words[96]="Garden";
+words[97]="Gas";
+words[98]="Gate";
+words[99]="Gemstone";
+words[100]="Girl";
+words[101]="Gloves";
+words[102]="God";
+words[103]="Grapes";
+words[104]="Guitar";
+words[105]="Hammer";
+words[106]="Hat";
+words[107]="Hieroglyph";
+words[108]="Highway";
+words[109]="Horoscope";
+words[110]="Horse";
+words[111]="Hose";
+words[112]="Ice";
+words[113]="Ice-cream";
+words[114]="Insect";
+words[115]="Jetfighter";
+words[116]="Junk";
+words[117]="Kaleidoscope";
+words[118]="Kitchen";
+words[119]="Knife";
+words[120]="Leatherjacket";
+words[121]="Leg";
+words[122]="Library";
+words[123]="Liquid";
+words[124]="Magnet";
+words[125]="Man";
+words[126]="Map";
+words[127]="Maze";
+words[128]="Meat";
+words[129]="Meteor";
+words[130]="Microscope";
+words[131]="Milk";
+words[132]="Milkshake";
+words[133]="Mist";
+words[134]="Money";
+words[135]="Monster";
+words[136]="Mosquito";
+words[137]="Mouth";
+words[138]="Nail";
+words[139]="Navy";
+words[140]="Necklace";
+words[141]="Needle";
+words[142]="Onion";
+words[143]="PaintBrush";
+words[144]="Pants";
+words[145]="Parachute";
+words[146]="Passport";
+words[147]="Pebble";
+words[148]="Pendulum";
+words[149]="Pepper";
+words[150]="Perfume";
+words[151]="Pillow";
+words[152]="Plane";
+words[153]="Planet";
+words[154]="Pocket";
+words[155]="Post-office";
+words[156]="Potato";
+words[157]="Printer";
+words[158]="Prison";
+words[159]="Pyramid";
+words[160]="Radar";
+words[161]="Rainbow";
+words[162]="Record";
+words[163]="Restaurant";
+words[164]="Rifle";
+words[165]="Ring";
+words[166]="Robot";
+words[167]="Rock";
+words[168]="Rocket";
+words[169]="Roof";
+words[170]="Room";
+words[171]="Rope";
+words[172]="Saddle";
+words[173]="Salt";
+words[174]="Sandpaper";
+words[175]="Sandwich";
+words[176]="Satellite";
+words[177]="School";
+words[178]="Sex";
+words[179]="Ship";
+words[180]="Shoes";
+words[181]="Shop";
+words[182]="Shower";
+words[183]="Signature";
+words[184]="Skeleton";
+words[185]="Slave";
+words[186]="Snail";
+words[187]="Software";
+words[188]="Solid";
+words[189]="SpaceShuttle";
+words[190]="Spectrum";
+words[191]="Sphere";
+words[192]="Spice";
+words[193]="Spiral";
+words[194]="Spoon";
+words[195]="Sports-car";
+words[196]="SpotLight";
+words[197]="Square";
+words[198]="Staircase";
+words[199]="Star";
+words[200]="Stomach";
+words[201]="Sun";
+words[202]="Sunglasses";
+words[203]="Surveyor";
+words[204]="SwimmingPool";
+words[205]="Sword";
+words[206]="Table";
+words[207]="Tapestry";
+words[208]="Teeth";
+words[209]="Telescope";
+words[210]="Television";
+words[211]="Tennisracquet";
+words[212]="Thermometer";
+words[213]="Tiger";
+words[214]="Toilet";
+words[215]="Tongue";
+words[216]="Torch";
+words[217]="Torpedo";
+words[218]="Train";
+words[219]="Treadmill";
+words[220]="Triangle";
+words[221]="Tunnel";
+words[222]="Typewriter";
+words[223]="Umbrella";
+words[224]="Vacuum";
+words[225]="Vampire";
+words[226]="Videotape";
+words[227]="Vulture";
+words[228]="Water";
+words[229]="Weapon";
+words[230]="Web";
+words[231]="Wheelchair";
+words[232]="Window";
+words[233]="Woman";
+words[234]="Worm";
+words[235]="X-ray";
+var number = new  Array();
+number[0] = '(s,z)';
+number[1] = '(t,d)';
+number[2] = 'n';
+number[3] = 'm';
+number[4] = 'r';
+number[5] = 'l';
+number[6] = '(j,ch,sh)';
+number[7] = '(k,q,c)';
+number[8] = '(f,v)';
+number[9] = '(p,b)';
+$(document).ready(function(){
+	$("#target").change(function() {
+		var s = $('#target').val();			
+		var ns = '';
+		for (var i = 0; i < s.length; i++){			
+			if(isNumeric(s.charAt(i))){
+				ns += number[s.charAt(i)];
+			}else{
+			ns += s.charAt(i);
+			}
+		}
+		$('#result').html(ns);
+});
+	$('ol.num-list li:even').addClass('even');
+    $('ol.num-list li:odd').addClass('odd');
+    
+	$('#file-system').hide();
+	$('#number1').val(Math.floor(Math.random()*100));
+	$('#number2').val(Math.floor(Math.random()*100));
+	$('#number3').val(Math.floor(Math.random()*100));
+	$('#number4').val(Math.floor(Math.random()*100));
+	$('#number5').val(Math.floor(Math.random()*100));
+	$('#show-file').click(function(){
+		$('#file-system').toggle();
+	});
+	$('#generate').click(function(){
+	   $('#item1').val(words.randomElement().toLowerCase());
+	   $('#item2').val(words.randomElement().toLowerCase());
+	   $('#item3').val(words.randomElement().toLowerCase());
+	   $('#item4').val(words.randomElement().toLowerCase());
+	   $('#item5').val(words.randomElement().toLowerCase());
+	   $('#item6').val(words.randomElement().toLowerCase());
+	   $('#item7').val(words.randomElement().toLowerCase());
+	   $('#item8').val(words.randomElement().toLowerCase());
+	   $('#item9').val(words.randomElement().toLowerCase());
+	   $('#item10').val(words.randomElement().toLowerCase());
+	});
+	$('#hide-answer').click(function(){
+		$('#list').hide();
+	});
+	$('#show-list').click(function(){
+		$('#list').show(1);
+	});
+	$('#mark').click(function(){
+		var matchItem1 = $('#item1').val() == $('#item1a').val();
+		var matchItem2 = $('#item2').val() == $('#item2a').val();
+		var matchItem3 = $('#item3').val() == $('#item3a').val();
+		var matchItem4 = $('#item4').val() == $('#item4a').val();
+		var matchItem5 = $('#item5').val() == $('#item5a').val();
+		var matchItem6 = $('#item6').val() == $('#item6a').val();
+		var matchItem7 = $('#item7').val() == $('#item7a').val();
+		var matchItem8 = $('#item8').val() == $('#item8a').val();
+		var matchItem9 = $('#item9').val() == $('#item9a').val();
+		var matchItem10 = $('#item10').val() == $('#item10a').val();
+		if(!matchItem1) {
+			$('#item1a').addClass('error');
+		}else{
+			$('#item1a').addClass('correct');
+		}
+		if(!matchItem2) {
+			$('#item2a').addClass('error');
+		}else{
+			$('#item2a').addClass('correct');
+		}
+		if(!matchItem3) {
+			$('#item3a').addClass('error');
+		}else{
+			$('#item3a').addClass('correct');
+		}
+		if(!matchItem4) {
+			$('#item4a').addClass('error');
+		}else{
+			$('#item4a').addClass('correct');
+		}
+		if(!matchItem5) {
+			$('#item5a').addClass('error');
+		}else{
+			$('#item5a').addClass('correct');
+		}
+		if(!matchItem6) {
+			$('#item6a').addClass('error');
+		}else{
+			$('#item6a').addClass('correct');
+		}
+		if(!matchItem7) {
+			$('#item7a').addClass('error');
+		}else{
+			$('#item7a').addClass('correct');
+		}
+		if(!matchItem8) {
+			$('#item8a').addClass('error');
+		}else{
+			$('#item8a').addClass('correct');
+		}
+		if(!matchItem9) {
+			$('#item9a').addClass('error');
+		}else{
+			$('#item9a').addClass('correct');
+		}
+		if(!matchItem10) {
+			$('#item10a').addClass('error');
+		}else{
+			$('#item10a').addClass('correct');
+		}
+	});
+	$('#un-mark').click(function(){		
+			$('#item1a').removeClass('error');
+			$('#item2a').removeClass('error');
+			$('#item3a').removeClass('error');
+			$('#item4a').removeClass('error');
+			$('#item5a').removeClass('error');
+			$('#item6a').removeClass('error');
+			$('#item7a').removeClass('error');
+			$('#item8a').removeClass('error');
+			$('#item9a').removeClass('error');
+			$('#item10a').removeClass('error');
+
+	});
+});
+</script>
+</head>
+<body>
+<div style="margin-left:100px">
+<p>Number To Letter<input id="target" type="text" value="" /> conversion: <span id="result"></span></p>
+</div>
+<div style="width: 500px;margin-left:100px">
+ <div id="list" style="float: left; width: 250px;">
+ <span><p> List to remember</p></span>
+<p>Item 1:<input type="text" id="item1" name="item1" value=""/></p>
+<p>Item 2:<input type="text" id="item2" name="item2" value=""/></p>
+<p>Item 3:<input type="text" id="item3" name="item3" value=""/></p>
+<p>Item 4:<input type="text" id="item4" name="item4" value=""/></p>
+<p>Item 5:<input type="text" id="item5" name="item5" value=""/></p>
+<p>Item 6:<input type="text" id="item6" name="item6" value=""/></p>
+<p>Item 7:<input type="text" id="item7" name="item7" value=""/></p>
+<p>Item 8:<input type="text" id="item8" name="item8" value=""/></p>
+<p>Item 9:<input type="text" id="item9" name="item9" value=""/></p>
+<p>Item 10:<input type="text" id="item10" name="item10" value=""/></p>
+<input type="button" name="generate" value="Generate" id="generate"/>
+
+</div>
+ <div style="float: left; width: 250px;">
+ <p >List you remembered</p>
+<p>Item 1:<input type="text" id="item1a" name="item1" value=""/></p>
+<p>Item 2:<input type="text" id="item2a" name="item2" value=""/></p>
+<p>Item 3:<input type="text" id="item3a" name="item3" value=""/></p>
+<p>Item 4:<input type="text" id="item4a" name="item4" value=""/></p>
+<p>Item 5:<input type="text" id="item5a" name="item5" value=""/></p>
+<p>Item 6:<input type="text" id="item6a" name="item6" value=""/></p>
+<p>Item 7:<input type="text" id="item7a" name="item7" value=""/></p>
+<p>Item 8:<input type="text" id="item8a" name="item8" value=""/></p>
+<p>Item 9:<input type="text" id="item9a" name="item9" value=""/></p>
+<p>Item 10:<input type="text" id="item10a" name="item10" value=""/></p>
+<input type="button" name="hide-answer" value="Hide Answer" id="hide-answer"/>
+<input type="button" name="show" value="Show" id="show-list"/>
+<input type="button" name="mark" value="Mark" id="mark"/>
+<input type="button" name="unmark" value="UnMark" id="un-mark"/>
+</div>
+ <br style="clear: left;" />
+</div>
+<div style="width: 500px;margin-left:100px">
+ <div id="num-list" style="float: left; width: 250px;">
+ <p>Number:<input type="text" id="number1" name="number1" value=""/></p>
+ <p>Number:<input type="text" id="number2" name="number2" value=""/></p>
+ <p>Number:<input type="text" id="number3" name="number3" value=""/></p>
+ <p>Number:<input type="text" id="number4" name="number4" value=""/></p>
+ <p>Number:<input type="text" id="number5" name="number5" value=""/></p>
+ </div>
+  <div style="float: left; width: 250px;">
+  <p>Number:<input type="text" id="number1a" name="number1" value=""/></p>
+ <p>Number:<input type="text" id="number2a" name="number2" value=""/></p>
+ <p>Number:<input type="text" id="number3a" name="number3" value=""/></p>
+ <p>Number:<input type="text" id="number4a" name="number4" value=""/></p>
+ <p>Number:<input type="text" id="number5a" name="number5" value=""/></p>
+ <input type="button" name="mark" value="Show File" id="show-file"/>
+  </div>
+   <br style="clear: left;" />
+</div>
+<div id="file-system">
+<div id="files" style="float:left">
+	<p>Skeleton Files</p>
+	<ol>
+	<li>Top (D)</li>
+	<li>Nose</li>
+	<li>Mouth</li>
+	<li>Rib</li>
+	<li>Liver</li>
+	<li>Joint (SH,CH)</li>
+	<li>Knee Cap</li>
+	<li>Ball (P)</li>
+	<li>Sand (Z)</li>
+	</ol>
+</div>
+<div id="house-files" style="float:left">
+	<p><center>House Files</center></p>
+	<p>BedRoom</p>
+	<ol>
+	<li>Dumb bell</li>
+	<li>Laptop</li>
+	<li>Bed</li>
+	<li>Suit</li>
+	<li>Trophy</li>
+	</ol>
+	<p>WashRoom</p>
+	<ol>
+	<li>Tub</li>
+	<li>Toliet</li>
+	<li>Sink</li>
+	<li>Mirror</li>
+	<li>ToothBrush</li>
+	</ol>
+	<p>Living Room</p>
+	<ol>
+	<li>TV</li>
+	<li>Clock</li>
+	<li>Sofa</li>
+	<li>Elephant</li>
+	<li>Banana</li>
+	</ol>
+	<p>Basement</p>
+	<ol>
+	<li>Furnace</li>
+	<li>Dryer</li>
+	<li>Washer</li>
+	<li>Toolbox</li>
+	<li>Pole</li>
+	</ol>
+
+
+
+</div>
+<div id="pencil-list" style="float:left">
+	<p>Number Files</p>
+	<ol class="num-list">
+	<li>Bun</li>
+	<li>Shoe</li>
+	<li>Tree</li>
+	<li>Door</li>
+	<li>Hive</li>
+	<li>Sticks</li>
+	<li>Dice</li>
+	<li>Gate</li>
+	<li>Wine</li>
+	<li>Hen</li>
+	<li>Goal Post</li>
+	<li>Eggs</li>
+	<li>Flags</li>
+	<li>Necklace</li>
+	<li>Pay cheque</li>
+	<li>Car</li>
+	<li>Magazine</li>
+	<li>Soldier</li>
+	<li>Golf Club</li>
+	<li>ShotGun</li>
+	<!--21 and on -->
+	<li>NuT</li>
+	<li>NuN</li>
+	<li>NeMo the fish</li>
+	<li>NeRo</li>
+	<li>NaiL</li>
+	<li>NaCHo</li>
+	<li>NecK</li>
+	<li>NaVy</li>
+	<li>NaP</li>
+	<li>MooSe</li>
+	<!-- 30 and on -->
+	<li>MaT</li>
+    <li> MaN</li>
+    <li> MuMMy</li>
+    <li> MaR</li>
+    <li> MiLL/MaiL</li>
+    <li> MaSH</li>
+	<li>MaC</li>
+	<li>MaFia</li>
+	<li>MaP</li>
+	<li>RoSe</li>
+	<!-- 40 and on -->
+	<li>RaT</li>
+	<li>RaiN</li>
+	<li>Rum/RaMp</li>
+	<li>RoaR</li>
+	<li>RaiL</li>
+	<li>RiCH/RaSH</li>
+	<li>RocK,RacK</li>
+	<li>ReeF/RaFFle</li>
+	<li>RoPe</li>
+	<li>LaSSe,LoSer</li>
+	<!-- 50 and on -->
+	<li>LaDy</li>
+	<li>LiNe</li>
+	<li>LiMe</li>
+	<li>LaRva</li>
+	<li>LiLy</li>
+	<li>Lochness monster</li>
+	<li>LucK/LacKey</li>
+	<li>LaVa</li>
+	<li>LaB</li>
+	<!-- 60 and on -->
+	<li>CHeeSe</li>
+	<li>CHaT/SHeD</li>
+	<li>CHaiN</li>
+	<li>CHiMe</li>
+	<li>CHaiR</li>
+	<li>SHeLl</li>
+	<li>CHa-CHa</li>
+	<li>CHeeK/CHecK-mate</li>
+	<li>CHieF</li>
+	<li>SHeeP</li>
+	<!-- 70 and on -->
+	<li>KiSs</li>
+	<li>CaT</li>
+	<li>CaN</li>
+	<li>CoMb</li>
+	<li>KiRa</li>
+	<li>CoaL</li>
+	<li>CaSH</li>
+	<li>CooK</li>
+	<li>CoFfee</li>
+	<li>CaP/Cabby</li>
+	<!-- 80 and on -->
+	<li>FeaSt</li>
+	<li>Fat/FooD</li>
+	<li>FaN</li>
+	<li>FaMe/FoaM</li>
+	<li>FeRry</li>
+	<li>FLesh</li>
+	<li>FiSH</li>
+	<li>FaKe</li>
+	<li>FiFa</li>
+	<li>FBi</li>
+	<!-- 90 and on -->
+	<li>BuS/BoSs</li>
+	<li>PeT</li>
+	<li>BoNe</li>
+	<li>BeaM</li>
+	<li>BeeR/BaR</li>
+	<li>BaLl</li>
+	<li>BeaCH</li>
+	<li>Book/BiKe/BuG</li>
+	<li>BeeF</li>
+	<li>BaBy</li>
+	</ol>
+</div>
+   <br style="clear: left;" />
+</div>
+</body>
+</html>
