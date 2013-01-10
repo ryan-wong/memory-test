@@ -5,6 +5,56 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script type="text/javascript">
+	Array.prototype.randomElement = function () {
+	    return this[Math.floor(Math.random() * this.length)]
+	}
+	function isNumeric(input)
+	{
+	    return (input - 0) == input && input.length > 0;
+	}
+	var number = new  Array();
+	number[0] = '(s,z)';
+	number[1] = '(t,d)';
+	number[2] = 'n';
+	number[3] = 'm';
+	number[4] = 'r';
+	number[5] = 'l';
+	number[6] = '(j,ch,sh)';
+	number[7] = '(k,q,c)';
+	number[8] = '(f,v)';
+	number[9] = '(p,b)';
+	$(document).ready(function(){
+		$("#reset-convert").click(function(){
+			$('#target').val('');
+			$('#result').val('');
+		});
+		$("#target").change(function() {
+			var s = $('#target').val();			
+			var ns = '';
+			for (var i = 0; i < s.length; i++){			
+				if(isNumeric(s.charAt(i))){
+					ns += number[s.charAt(i)];
+				}else{
+					ns += s.charAt(i);
+				}
+			}
+			$('#result').val(ns);
+		});
+		$("#convert").click(function() {
+			var s = $('#target').val();			
+			var ns = '';
+			for (var i = 0; i < s.length; i++){			
+				if(isNumeric(s.charAt(i))){
+					ns += number[s.charAt(i)];
+				}else{
+					ns += s.charAt(i);
+				}
+			}
+			$('#result').val(ns);
+		});
+	});
+	</script>
     </head> 
     <body> 
             <div data-role="page" id="main" data-title="main">
@@ -13,15 +63,40 @@
             </div><!-- /headers -->
 
             <div data-role="content">	
-            <input type="button" value="Number Conversion" />
-            <input type="button" value="Test List" />
-            <input type="button" value="Test Number" />
-            <input type="button" value="Files" />
+	    <a href="#number-conversion" data-role="button">Number Conversion</a>
+	    <a href="#test-list" data-role="button">Test List</a>
+	    <a href="#test-number" data-role="button">Test Number</a>
+	    <a href="#files" data-role="button">Files</a>
             </div>
               <div data-role="footer">
                 <h4>Made by Ryan Wong&copy;</h4>
             </div><!-- /footer -->
             </div>
+
+
+
+	<!-- Start of second page -->
+	<div data-role="page" id="number-conversion">
+
+	<div data-role="header">
+		<h1>Convert Number To Word</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+	<label for="name">Number:</label><input type="text" name="target" id="target" value=""  />
+	<label for="result">Result:</label><input type="text" name="result" id="result" value=""  />
+	<center>
+	<a href="#main" data-role="button" data-inline="true">Back</a>
+	<a href="#" data-role="button" data-inline="true" id="reset-convert">Clear</a>
+	<a href="#" data-role="button" data-inline="true" data-theme="b" id="convert">Convert</a>
+	</center>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4><br/></h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
      </body>
 </html>
 
