@@ -59,10 +59,10 @@
 	numberFiles[30] = '30 MooSe';
 	numberFiles[31] = '31 MaT';
  	numberFiles[32] = '32 MaN';
-    	numberFiles[33] = '33 MuMMy';
-    	numberFiles[34] = '34 MaR';
-    	numberFiles[35] = '35 MiLL/MaiL';
-    	numberFiles[36] = '36 MaSH';
+    numberFiles[33] = '33 MuMMy';
+    numberFiles[34] = '34 MaR';
+    numberFiles[35] = '35 MiLL/MaiL';
+    numberFiles[36] = '36 MaSH';
 	numberFiles[37] = '37 MaC';
 	numberFiles[38] = '38 MaFia';
 	numberFiles[39] = '39 MaP';
@@ -127,6 +127,21 @@
 	numberFiles[98] = '98 BeeF';
 	numberFiles[99] = '99 BaBy';
 	// number files ---------------------------------------------------------------------------------
+	
+	//skeleton Files --------------------------------------------------------------------------------
+	var skeletonFiles = new Array();
+	skeletonFiles[0] =  '0 Sand (S,Z)';
+    skeletonFiles[1] =  '1 Top (T,D)';
+	skeletonFiles[2] =  '2 Nose (N)';
+    skeletonFiles[3] =  '3 Mouth (M)';
+	skeletonFiles[4] =  '4 Rib (R)';
+    skeletonFiles[5] =  '5 Liver (L)';
+	skeletonFiles[6] =  '6 Joints(wrist) (J, CH,SH)';
+    skeletonFiles[7] =  '7 Knee Cap (K,Q)';
+	skeletonFiles[8] =  '8 Fibral (F,V,W)';
+    skeletonFiles[9] =  '9 Ball (B,P)';
+	//-----------------------------------------------------------------------------------------------
+	
 	$(document).ready(function(){
 		//Number conversion --------------------------------------------------------------------------------------------------
 		$("#reset-convert").click(function(){
@@ -165,15 +180,24 @@
 		});
 		$('#current-number').click(function(){
 			var curVal = $('#cur-number').html();		
-//			alert('#a_' + curVal);
 			$('#a_' + curVal).get(0).play();
 		});
 
+		// fill number files ---------------------------------------------------------------------------------------------------
 		var numberStr = '';
 		for (var i=1;i<100;i++){
-			numberStr +='<li>' +numberFiles[i] + '</li>';
+			numberStr +='<li data-theme="d"><a href=#>' +numberFiles[i] + '</a></li>';
 		}
 		$('#number-file-list').html(numberStr);		
+		
+		//fill skeleton files --------------------------------------------------------------------------------------------------
+		var skeletonStr = '';
+		for (var i=1;i<10;i++){
+			skeletonStr +='<li data-theme="d"><a href=#>' +skeletonFiles[i] + '</a></li>';
+		}
+		skeletonStr += '<li data-theme="d"><a href=#>' +skeletonFiles[0] + '</a></li>';
+
+		$('#skeleton-file-list').html(skeletonStr);		
 	});
 	</script>
     </head> 
@@ -237,22 +261,46 @@
                 <h4><br/></h4>
             </div><!-- /footer -->
             </div>
+            
+    <!-- list of Files -->
+    <div data-role="page" id="files">
+	    <div data-theme="a" data-role="header"><h3>Files</h3></div>
+		    <div data-role="content">
+   	        <ul data-role="listview" data-divider-theme="" data-inset="true">
+	            <li data-theme="d"><a href="#home-files" data-transition="slide">Home Files</a></li>
+	            <li data-theme="d"><a href="#number-files" data-transition="slide">Number Files</a></li>
+	            <li data-theme="c"><a href="#skeleton-files" data-transition="slide">Skeleton Files</a></li>
+	            <li data-theme="d"><a href="#alphabet-files" data-transition="slide">Alphabet Files</a></li>
+    	    </ul>
+		    </div>
+	    <div data-theme="a" data-role="footer" data-position="fixed"><h3><br/></h3></div>
+	</div>        
+            
 	<!-- Says Number Files -->
     <div data-role="page" id="number-files" data-title="number files">
              <div data-role="header">
-                <h1>Number Files</h1> <a data-role="button" href="#test-number" class="ui-btn-right">&larr;</a>
-            </div><!-- /headers -->
-
+             	<a data-role="button" href="#files" class="ui-btn-left" data-icon="back" data-iconpos="notext"></a>
+                <h1>Number Files</h1>
+                <a data-role="button" href="#test-number" class="ui-btn-right">test</a>
+             </div>
             <div data-role="content">	
-		<ul data-role="listview" data-inset="true" data-filter="true" id="number-file-list">
-	
-	</ul>
+				<ul data-role="listview" data-inset="true" data-filter="true" id="number-file-list"></ul>
+        	</div>
+            <div data-role="footer"><h4><br/></h4></div>
+    </div>
+    
+    <!-- Skeleton Files -->
+    <div data-role="page" id="skeleton-files">
+	    <div data-theme="a" data-role="header">
+           	<a data-role="button" href="#files" class="ui-btn-left" data-icon="back" data-iconpos="notext"></a>
+           	<h3>Skeleton Files</h3>
         </div>
-
-            <div data-role="footer">
-                <h4><br/></h4>
-            </div><!-- /footer -->
-            </div>
+		    <div data-role="content">
+		    				<ul data-role="listview" data-filter="true" id="skeleton-file-list" data-inset="true" >
+		    				</ul></div>
+	    <div data-theme="a" data-role="footer" data-position="fixed"><h3><br/></h3></div>
+	</div>      
+	
 	 <div style="display:none">
 	 <audio autobuffer="autobuffer"  id="a_1">
     <source src="data:audio/wav;base64,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" />
