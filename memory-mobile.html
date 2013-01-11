@@ -24,6 +24,109 @@
 	number[7] = '(k,q,c)';
 	number[8] = '(f,v)';
 	number[9] = '(p,b)';
+	// Number files ---------------------------------------------------------------------------------
+	var numberFiles = new Array();
+	numberFiles[0] = '0 Zoo';
+	numberFiles[1] = '1 Bun';
+	numberFiles[2] = '2 Shoe';
+	numberFiles[3] = '3 Tree';
+	numberFiles[4] = '4 Door';
+	numberFiles[5] = '5 Hive';
+	numberFiles[6] = '6 Sticks';
+	numberFiles[7] = '7 Dice';
+	numberFiles[8] = '8 Gate';
+	numberFiles[9] = '9 Wine';
+	numberFiles[10] = '10 Hen';
+	numberFiles[11] = '11 Goal Post';
+	numberFiles[12] = '12 Eggs';
+	numberFiles[13] = '13 Flags';
+	numberFiles[14] = '14 Necklace';
+	numberFiles[15] = '15 Pay cheque';
+	numberFiles[16] = '16 Car';
+	numberFiles[17] = '17 Magazine';
+	numberFiles[18] = '18 Soldier';
+	numberFiles[19] = '19 Golf Club';
+	numberFiles[20] = '20 ShotGun';
+	numberFiles[21] = '21 NuT';
+	numberFiles[22] = '22 NuN';
+	numberFiles[23] = '23 NeMo the fish';
+	numberFiles[24] = '24 NeRD';
+	numberFiles[25] = '25 NaiL';
+	numberFiles[26] = '26 NaCHo';
+	numberFiles[27] = '27 NecK';
+	numberFiles[28] = '28 NaVy';
+	numberFiles[29] = '29 NaPPa';
+	numberFiles[30] = '30 MooSe';
+	numberFiles[31] = '31 MaT';
+ 	numberFiles[32] = '32 MaN';
+    	numberFiles[33] = '33 MuMMy';
+    	numberFiles[34] = '34 MaR';
+    	numberFiles[35] = '35 MiLL/MaiL';
+    	numberFiles[36] = '36 MaSH';
+	numberFiles[37] = '37 MaC';
+	numberFiles[38] = '38 MaFia';
+	numberFiles[39] = '39 MaP';
+	numberFiles[40] = '40 RoSe';
+	numberFiles[41] = '41 RaT';
+	numberFiles[42] = '42 RaiN';
+	numberFiles[43] = '43 Rum/RaMp';
+	numberFiles[44] = '44 RoaR';
+	numberFiles[45] = '45 RaiL';
+	numberFiles[46] = '46 RiCH/RaSH';
+	numberFiles[47] = '47 RocK,RacK';
+	numberFiles[48] = '48 ReeF/RaFFle';
+	numberFiles[49] = '49 RoPe';
+	numberFiles[50] = '50 LaSSe,LoSer';
+	numberFiles[51] = '51 LaDy';
+	numberFiles[52] = '52 LiNe';
+	numberFiles[53] = '53 LiMe';
+	numberFiles[54] = '54 LaRva';
+	numberFiles[55] = '55 LiLy';
+	numberFiles[56] = '56 Lochness monster';
+	numberFiles[57] = '57 LucK/LacKey';
+	numberFiles[58] = '58 LaVa';
+	numberFiles[59] = '59 LaB';
+	numberFiles[60] = '60 CHeeSe';
+	numberFiles[61] = '61 CHaT/SHeD';
+	numberFiles[62] = '62 CHaiN';
+	numberFiles[63] = '63 CHiMe';
+	numberFiles[64] = '64 CHaiR';
+	numberFiles[65] = '65 SHeLl';
+	numberFiles[66] = '66 CHa-CHa';
+	numberFiles[67] = '67 CHeeK/CHecK-mate';
+	numberFiles[68] = '68 CHieF';
+	numberFiles[69] = '69 SHeeP';
+	numberFiles[70] = '70 KiSs';
+	numberFiles[71] = '71 CaT';
+	numberFiles[72] = '72 CaN';
+	numberFiles[73] = '73 CoMb';
+	numberFiles[74] = '74 KiRa';
+	numberFiles[75] = '75 CoaL';
+	numberFiles[76] = '76 CaSH';
+	numberFiles[77] = '77 CooK';
+	numberFiles[78] = '78 CoFfee';
+	numberFiles[79] = '79 CaP/Cabby';
+	numberFiles[80] = '80 FeaSt';
+	numberFiles[81] = '81 Fat/FooD';
+	numberFiles[82] = '82 FaN';
+	numberFiles[83] = '83 FaMe/FoaM';
+	numberFiles[84] = '84 FeRry';
+	numberFiles[85] = '85 FLesh';
+	numberFiles[86] = '86 FiSH';
+	numberFiles[87] = '87 FaKe';
+	numberFiles[88] = '88 FiFa';
+	numberFiles[89] = '89 FBi';
+	numberFiles[90] = '90 BuS/BoSs';
+	numberFiles[91] = '91 PeT';
+	numberFiles[92] = '92 BoNe';
+	numberFiles[93] = '93 BeaM';
+	numberFiles[94] = '94 BeeR/BaR';
+	numberFiles[95] = '95 BaLl';
+	numberFiles[96] = '96 BeaCH';
+	numberFiles[97] = '97 Book/BiKe/BuG';
+	numberFiles[98] = '98 BeeF';
+	numberFiles[99] = '99 BaBy';
+	// number files ---------------------------------------------------------------------------------
 	$(document).ready(function(){
 		//Number conversion --------------------------------------------------------------------------------------------------
 		$("#reset-convert").click(function(){
@@ -65,7 +168,12 @@
 //			alert('#a_' + curVal);
 			$('#a_' + curVal).get(0).play();
 		});
-		
+
+		var numberStr = '';
+		for (var i=1;i<100;i++){
+			numberStr +='<li>' +numberFiles[i] + '</li>';
+		}
+		$('#number-file-list').html(numberStr);		
 	});
 	</script>
     </head> 
@@ -113,7 +221,7 @@
 	<!-- Says Number you guess it -->
     <div data-role="page" id="test-number" data-title="test number">
              <div data-role="header">
-                <h1>Test Audio Number</h1>
+                <h1>Test Audio Number</h1> <a data-role="button" href="#number-files" class="ui-btn-right">?</a>
             </div><!-- /headers -->
 
             <div data-role="content">	
@@ -124,6 +232,22 @@
             <a href="#" data-role="button" data-inline="true"  data-mini="true" id="generate-number">Next Number</a>
             </center>
             </div>
+
+            <div data-role="footer">
+                <h4><br/></h4>
+            </div><!-- /footer -->
+            </div>
+	<!-- Says Number Files -->
+    <div data-role="page" id="number-files" data-title="number files">
+             <div data-role="header">
+                <h1>Number Files</h1> <a data-role="button" href="#test-number" class="ui-btn-right">&larr;</a>
+            </div><!-- /headers -->
+
+            <div data-role="content">	
+		<ul data-role="listview" data-inset="true" data-filter="true" id="number-file-list">
+	
+	</ul>
+        </div>
 
             <div data-role="footer">
                 <h4><br/></h4>
