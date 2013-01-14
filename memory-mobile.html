@@ -13,6 +13,18 @@
 	{
 	    return (input - 0) == input && input.length > 0;
 	}
+	function playSong(n,time){
+		$('#a_' + n).get(0).play();
+		pausecomp(time) 
+	}
+	function pausecomp(millis) 
+	{
+		var date = new Date();
+		var curDate = null;
+
+		do { curDate = new Date(); } 
+		while(curDate-date < millis);
+	} 
 	var number = new  Array();
 	number[0] = '(s,z)';
 	number[1] = '(t,d)';
@@ -200,7 +212,7 @@
 	alphabet2[25]="Z - Zoo";
 
 //-------------------------------------------------------------------------------------------------
-	
+	var MAX = 99;
 	$(document).ready(function(){
 		//Number conversion --------------------------------------------------------------------------------------------------
 		$("#reset-convert").click(function(){
@@ -233,11 +245,9 @@
 		});
 		//----------------------------------------------------------------------------------------------------------------------
 		$('#generate-number').click(function(){
-			
-			var MAX = 99;
 			var randNum = Math.floor(Math.random() * MAX + 1);	
 			$('#cur-number').html (randNum);
-			setTimeout(function(){$('#a_' + randNum).get(0).play();},1000);			
+			playSong(randNum,1000);
 		});
 		$('#current-number').click(function(){
 			var curVal = $('#cur-number').html();		
@@ -282,6 +292,41 @@
 			alphabet2Str +='<li data-theme="d"><a href=#>' +alphabet2[i] + '</a></li>';
 		}		
 		$('#alphabet2-file-list').html(alphabet2Str);		
+		
+		//number listing -----------------------------------------------------------------------------------------
+		//generate number list
+		$('#generate-number-list').click(function(){
+			var size = $('#size-number-list').val();
+			var numberList = '';
+			for (var i = 0; i < size; i++){
+				numberList += Math.floor(Math.random() * MAX + 1) + ',';				
+			}
+			$('#number-answer-list').html(numberList.substring(0,numberList.length-1));
+			$('#number-answer-list').show('fast');			
+			
+		});
+		//show and hide list of numbers
+		$('#number-list').click(function(){
+			var answerList = $('#number-answer-list').html();
+			if(answerList.length == 0){
+				$('#generate-number-list').click();
+			}else{
+			$('#number-answer-list').toggle();
+			}
+		});
+		$('#number-sound').click(function(){
+			$('#number-answer-list').hide();
+			var answerList = $('#number-answer-list').html();
+			if(answerList.length == 0){
+				$('#generate-number-list').click();
+			}else{
+			var numberAudioList=answerList.split(","); 						
+			for (var i = 0; i < numberAudioList.length; i++){
+				playSong(numberAudioList[i],2500);
+			}
+			}
+
+		});
 	});
 	</script>
     </head> 
@@ -350,6 +395,31 @@
             </div><!-- /footer -->
             </div>
             
+    <!-- Says Number List you want it -->
+    <div data-role="page" id="test-number-list" data-title="test number">
+             <div data-role="header">
+                <h1>Test Number List</h1> <a data-role="button" href="#number-files" class="ui-btn-right">?</a>
+            </div><!-- /headers -->
+
+            <div data-role="content">	
+            <center>            
+            <div data-role="fieldcontain">
+		    	<label for="name">Size of List:</label>
+		    	<input type="text" name="name" id="size-number-list" value="10"  />
+			</div>	
+			<span id="number-answer-list"></span>
+			<br/>
+            <a href="#main" data-role="button" data-inline="true"  data-mini="true" >Back</a>
+            <a href="#" data-role="button" data-inline="true"  data-mini="true" id="number-list">List</a>
+            <a href="#" data-role="button" data-inline="true"  data-mini="true" id="number-sound">Audio</a>
+            <a href="#" data-role="button" data-inline="true"  data-mini="true" id="generate-number-list">Generate</a>
+            </center>
+            </div>
+
+            <div data-role="footer">
+                <h4><br/></h4>
+            </div><!-- /footer -->
+            </div>
     <!-- list of Files -->
     <div data-role="page" id="files">
 	    <div data-theme="a" data-role="header">
