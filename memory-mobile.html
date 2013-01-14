@@ -25,6 +25,245 @@
 		do { curDate = new Date(); } 
 		while(curDate-date < millis);
 	} 
+	//word list -------------------------------------------------------------------------------------
+	var words= new Array();
+	words[0]="Adult";
+	words[1]="Aeroplane";
+	words[2]="Air";
+	words[3]="AircraftCarrier";
+	words[4]="Airforce";
+	words[5]="Airport";
+	words[6]="Album";
+	words[7]="Alphabet";
+	words[8]="Apple";
+	words[9]="Arm";
+	words[10]="Army";
+	words[11]="Baby";
+	words[12]="Baby";
+	words[13]="Backpack";
+	words[14]="Balloon";
+	words[15]="Banana";
+	words[16]="Bank";
+	words[17]="Barbecue";
+	words[18]="Bathroom";
+	words[19]="Bathtub";
+	words[20]="Bed";
+	words[21]="Bed";
+	words[22]="Bee";
+	words[23]="Bible";
+	words[24]="Bible";
+	words[25]="Bird";
+	words[26]="Bomb";
+	words[27]="Book";
+	words[28]="Boss";
+	words[29]="Bottle";
+	words[30]="Bowl";
+	words[31]="Box";
+	words[32]="Boy";
+	words[33]="Brain";
+	words[34]="Bridge";
+	words[35]="Butterfly";
+	words[36]="Button";
+	words[37]="Cappuccino";
+	words[38]="Car";
+	words[39]="Car-race";
+	words[40]="Carpet";
+	words[41]="Carrot";
+	words[42]="Cave";
+	words[43]="Chair";
+	words[44]="ChessBoard";
+	words[45]="Chief";
+	words[46]="Child";
+	words[47]="Chisel";
+	words[48]="Chocolates";
+	words[49]="Church";
+	words[50]="Church";
+	words[51]="Circle";
+	words[52]="Circus";
+	words[53]="Circus";
+	words[54]="Clock";
+	words[55]="Clown";
+	words[56]="Coffee";
+	words[57]="Coffee-shop";
+	words[58]="Comet";
+	words[59]="CompactDisc";
+	words[60]="Compass";
+	words[61]="Computer";
+	words[62]="Crystal";
+	words[63]="Cup";
+	words[64]="Cycle";
+	words[65]="DataBase";
+	words[66]="Desk";
+	words[67]="Diamond";
+	words[68]="Dress";
+	words[69]="Drill";
+	words[70]="Drink";
+	words[71]="Drum";
+	words[72]="Dung";
+	words[73]="Ears";
+	words[74]="Earth";
+	words[75]="Egg";
+	words[76]="Electricity";
+	words[77]="Elephant";
+	words[78]="Eraser";
+	words[79]="Explosive";
+	words[80]="Eyes";
+	words[81]="Family";
+	words[82]="Fan";
+	words[83]="Feather";
+	words[84]="Festival";
+	words[85]="Film";
+	words[86]="Finger";
+	words[87]="Fire";
+	words[88]="Floodlight";
+	words[89]="Flower";
+	words[90]="Foot";
+	words[91]="Fork";
+	words[92]="Freeway";
+	words[93]="Fruit";
+	words[94]="Fungus";
+	words[95]="Game";
+	words[96]="Garden";
+	words[97]="Gas";
+	words[98]="Gate";
+	words[99]="Gemstone";
+	words[100]="Girl";
+	words[101]="Gloves";
+	words[102]="God";
+	words[103]="Grapes";
+	words[104]="Guitar";
+	words[105]="Hammer";
+	words[106]="Hat";
+	words[107]="Hieroglyph";
+	words[108]="Highway";
+	words[109]="Horoscope";
+	words[110]="Horse";
+	words[111]="Hose";
+	words[112]="Ice";
+	words[113]="Ice-cream";
+	words[114]="Insect";
+	words[115]="Jetfighter";
+	words[116]="Junk";
+	words[117]="Kaleidoscope";
+	words[118]="Kitchen";
+	words[119]="Knife";
+	words[120]="Leatherjacket";
+	words[121]="Leg";
+	words[122]="Library";
+	words[123]="Liquid";
+	words[124]="Magnet";
+	words[125]="Man";
+	words[126]="Map";
+	words[127]="Maze";
+	words[128]="Meat";
+	words[129]="Meteor";
+	words[130]="Microscope";
+	words[131]="Milk";
+	words[132]="Milkshake";
+	words[133]="Mist";
+	words[134]="Money";
+	words[135]="Monster";
+	words[136]="Mosquito";
+	words[137]="Mouth";
+	words[138]="Nail";
+	words[139]="Navy";
+	words[140]="Necklace";
+	words[141]="Needle";
+	words[142]="Onion";
+	words[143]="PaintBrush";
+	words[144]="Pants";
+	words[145]="Parachute";
+	words[146]="Passport";
+	words[147]="Pebble";
+	words[148]="Pendulum";
+	words[149]="Pepper";
+	words[150]="Perfume";
+	words[151]="Pillow";
+	words[152]="Plane";
+	words[153]="Planet";
+	words[154]="Pocket";
+	words[155]="Post-office";
+	words[156]="Potato";
+	words[157]="Printer";
+	words[158]="Prison";
+	words[159]="Pyramid";
+	words[160]="Radar";
+	words[161]="Rainbow";
+	words[162]="Record";
+	words[163]="Restaurant";
+	words[164]="Rifle";
+	words[165]="Ring";
+	words[166]="Robot";
+	words[167]="Rock";
+	words[168]="Rocket";
+	words[169]="Roof";
+	words[170]="Room";
+	words[171]="Rope";
+	words[172]="Saddle";
+	words[173]="Salt";
+	words[174]="Sandpaper";
+	words[175]="Sandwich";
+	words[176]="Satellite";
+	words[177]="School";
+	words[178]="Sex";
+	words[179]="Ship";
+	words[180]="Shoes";
+	words[181]="Shop";
+	words[182]="Shower";
+	words[183]="Signature";
+	words[184]="Skeleton";
+	words[185]="Slave";
+	words[186]="Snail";
+	words[187]="Software";
+	words[188]="Solid";
+	words[189]="SpaceShuttle";
+	words[190]="Spectrum";
+	words[191]="Sphere";
+	words[192]="Spice";
+	words[193]="Spiral";
+	words[194]="Spoon";
+	words[195]="Sports-car";
+	words[196]="SpotLight";
+	words[197]="Square";
+	words[198]="Staircase";
+	words[199]="Star";
+	words[200]="Stomach";
+	words[201]="Sun";
+	words[202]="Sunglasses";
+	words[203]="Surveyor";
+	words[204]="SwimmingPool";
+	words[205]="Sword";
+	words[206]="Table";
+	words[207]="Tapestry";
+	words[208]="Teeth";
+	words[209]="Telescope";
+	words[210]="Television";
+	words[211]="Tennisracquet";
+	words[212]="Thermometer";
+	words[213]="Tiger";
+	words[214]="Toilet";
+	words[215]="Tongue";
+	words[216]="Torch";
+	words[217]="Torpedo";
+	words[218]="Train";
+	words[219]="Treadmill";
+	words[220]="Triangle";
+	words[221]="Tunnel";
+	words[222]="Typewriter";
+	words[223]="Umbrella";
+	words[224]="Vacuum";
+	words[225]="Vampire";
+	words[226]="Videotape";
+	words[227]="Vulture";
+	words[228]="Water";
+	words[229]="Weapon";
+	words[230]="Web";
+	words[231]="Wheelchair";
+	words[232]="Window";
+	words[233]="Woman";
+	words[234]="Worm";
+	words[235]="X-ray";
+	// number to letter conversion ------------------------------------------------------------------
 	var number = new  Array();
 	number[0] = '(s,z)';
 	number[1] = '(t,d)';
@@ -296,7 +535,10 @@
 		//number listing -----------------------------------------------------------------------------------------
 		//generate number list
 		$('#generate-number-list').click(function(){
-			var size = $('#size-number-list').val();
+			var size = Math.abs($('#size-number-list').val());
+			if(size > 99){
+				size = 99;
+			}
 			var numberList = '';
 			for (var i = 0; i < size; i++){
 				numberList += Math.floor(Math.random() * MAX + 1) + ',';				
@@ -314,6 +556,7 @@
 			$('#number-answer-list').toggle();
 			}
 		});
+		// play number sound through the list
 		$('#number-sound').click(function(){
 			$('#number-answer-list').hide();
 			var answerList = $('#number-answer-list').html();
@@ -327,6 +570,23 @@
 			}
 
 		});
+		
+		//generate word list -----------------------------------------------------
+		//random-word-list generate-word-list size-word-list
+		$('#generate-word-list').click(function(){
+			var size = Math.abs($('#size-word-list').val());
+			if(size > words.length){
+			size = words.length - 1;
+			}
+			var wordStr = '';
+			var wordMax = words.length;
+			for (var i = 0; i < size; i++){
+				wordStr += '<li >' + words[Math.floor(Math.random() * wordMax + 1)] + '</li>';
+			}
+			$('#random-word-list').html(wordStr);
+			$('#random-word-list').listview('refresh');
+		});
+		
 	});
 	</script>
     </head> 
@@ -348,11 +608,44 @@
             </div><!-- /footer -->
             </div>
 
+ 		<!-- Word List you want it -->
+   		 <div data-role="page" id="test-list" data-title="test word">
+                <div data-role="header">
+             	<a data-role="button" href="#main" class="ui-btn-left" data-icon="back" data-iconpos="notext"></a>
+                <h1>Test Word List</h1>
+                </div><!-- /headers -->
 
+            <div data-role="content">	
+		        <center>            
+						<div data-role="fieldcontain">
+							<label for="name">Size of List:</label>
+							<input type="text" name="name" id="size-word-list" value="10"  />
+						</div>	
+					<div data-role="content">
+						<div data-role="collapsible-set">
+							<div data-role="collapsible" >
+							<h3>Word List</h3>
+							<ul  id="random-word-list" data-role="listview" data-divider-theme="" data-inset="true">
+							
+							</ul>
+							</div>
+						</div>
+					</div>
+				<br/>
+		        <a href="#main" data-role="button" data-inline="true"  data-mini="true" >Back</a>
+		        <a href="#" data-role="button" data-inline="true"  data-mini="true" id="generate-word-list">Generate</a>
+		        </center>
+            </div>
+
+                <div data-role="footer">
+                <h4><br/></h4>
+                </div><!-- /footer -->
+         </div>
 
 	<!-- Number conversion -->
 	<div data-role="page" id="number-conversion">
 		<div data-role="header">
+					<a data-role="button" href="#main" class="ui-btn-left" data-icon="back" data-iconpos="notext"></a>
 			<h1>Convert Number To Word</h1>
 		</div><!-- /header -->
 
@@ -374,6 +667,7 @@
 	<!-- Says Number you guess it -->
     <div data-role="page" id="test-number" data-title="test number">
              <div data-role="header">
+             			<a data-role="button" href="#main" class="ui-btn-left" data-icon="back" data-iconpos="notext"></a>
                 <h1>Test Audio Number</h1> <a data-role="button" href="#number-files" class="ui-btn-right">?</a>
             </div><!-- /headers -->
 
@@ -398,6 +692,7 @@
     <!-- Says Number List you want it -->
     <div data-role="page" id="test-number-list" data-title="test number">
              <div data-role="header">
+             			<a data-role="button" href="#main" class="ui-btn-left" data-icon="back" data-iconpos="notext"></a>
                 <h1>Test Number List</h1> <a data-role="button" href="#number-files" class="ui-btn-right">?</a>
             </div><!-- /headers -->
 
