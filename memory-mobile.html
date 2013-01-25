@@ -25,6 +25,27 @@
 		do { curDate = new Date(); } 
 		while(curDate-date < millis);
 	} 
+	var interval;
+
+
+	function stopInterval()	{
+		clearTimeout(interval);
+	}
+	function timeStart(minute,second){	
+		var time = (minute * 60) + second;
+		interval = setInterval(function() {
+			time--;
+			// Display 'counter' wherever you want to display it.
+			if (time == 0) {
+				// Display a login box
+				clearInterval(interval);
+				alert('Times Up');
+				$('#time-display').html('');
+			}else{
+				$('#time-display').html(time);
+			}
+		}, 1000);		
+	}
 	//word list -------------------------------------------------------------------------------------
 	var words= new Array();
 	words[0]="Adult";
@@ -587,6 +608,13 @@
 			$('#random-word-list').listview('refresh');
 		});
 		
+		//timer button ----------------------------------------------------
+		$('#timer-button').click(function(){
+			stopInterval();
+			timeStart($('#minute').val(),$('#second').val());
+		
+		});
+		
 	});
 	</script>
     </head> 
@@ -601,6 +629,7 @@
 	    <a href="#test-list" data-role="button">Test List</a>
 	    <a href="#test-number" data-role="button">Test Number</a>
    	    <a href="#test-number-list" data-role="button">Test Number List</a>
+   	    <a href="#timer-page" data-role="button">Timer</a>
 	    <a href="#files" data-role="button">Files</a>
             </div>
               <div data-role="footer">
@@ -612,6 +641,7 @@
    		 <div data-role="page" id="test-list" data-title="test word">
                 <div data-role="header">
              	<a data-role="button" href="#main" class="ui-btn-left" data-icon="back" data-iconpos="notext"></a>
+       			<a data-role="button" href="#timer-page" style="margin-left:40px" data-icon="gear" data-iconpos="notext"></a>             			
                 <h1>Test Word List</h1>
                 </div><!-- /headers -->
 
@@ -668,6 +698,7 @@
     <div data-role="page" id="test-number" data-title="test number">
              <div data-role="header">
              			<a data-role="button" href="#main" class="ui-btn-left" data-icon="back" data-iconpos="notext"></a>
+            			<a data-role="button" href="#timer-page" style="margin-left:40px" data-icon="gear" data-iconpos="notext"></a>             			
                 <h1>Test Audio Number</h1> <a data-role="button" href="#number-files" class="ui-btn-right">?</a>
             </div><!-- /headers -->
 
@@ -693,6 +724,7 @@
     <div data-role="page" id="test-number-list" data-title="test number">
              <div data-role="header">
              			<a data-role="button" href="#main" class="ui-btn-left" data-icon="back" data-iconpos="notext"></a>
+             			<a data-role="button" href="#timer-page" style="margin-left:40px" data-icon="gear" data-iconpos="notext"></a>             			
                 <h1>Test Number List</h1> <a data-role="button" href="#number-files" class="ui-btn-right">?</a>
             </div><!-- /headers -->
 
@@ -715,6 +747,26 @@
                 <h4><br/></h4>
             </div><!-- /footer -->
             </div>
+            
+    <!-- Timer -->
+    <div data-role="page" id="timer-page">
+	    <div data-theme="a" data-role="header">
+           	<a data-role="button" href="#main" class="ui-btn-left" data-icon="back" data-iconpos="notext"></a>
+           	<h3>Timer</h3>
+        </div>
+		    <div data-role="content">
+		    <center>
+		    <label for="minute">Minute</label>
+			<input type="range" id="minute" value="5" min="0" max="60" />
+		    <label for="minute">Second</label>
+			<input type="range" id="second" value="0" min="0" max="60" />
+
+			<br/><span id="time-display" style="font-size:3em;color:red"></span><br/>
+		    	<a href="#" data-role="button" data-inline="true" data-mini="true" id="timer-button"> Go</a>
+		    	</center>
+		    </div>
+	</div>      
+
     <!-- list of Files -->
     <div data-role="page" id="files">
 	    <div data-theme="a" data-role="header">
