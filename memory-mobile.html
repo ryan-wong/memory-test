@@ -32,7 +32,9 @@
 		clearTimeout(interval);
 	}
 	function timeStart(minute,second){	
-		var time = (minute * 60) + second;
+		var iminute = parseInt(minute);
+		var isecond = parseInt(second);
+		var time = (iminute * 60) + isecond;
 		interval = setInterval(function() {
 			time--;
 			// Display 'counter' wherever you want to display it.
